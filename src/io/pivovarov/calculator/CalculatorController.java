@@ -12,13 +12,32 @@ public class CalculatorController {
 
     @FXML
     public void onMouseClickListener(MouseEvent mouseEvent) {
+        int[] nums = new int[2];
+        //nums[0] = 0;
+        //nums[1] = 0;
+
         if (mouseEvent.getSource() instanceof Button) {
             Button button = (Button) mouseEvent.getSource();
             System.out.println("Pressed button: " + button.getText());
-            if (button.getText().equals("CE")){
-                field.setText("");
-            } else {
-                field.setText(field.getText() + button.getText());
+            switch (button.getText()) {
+                case "CE":
+                    field.setText("");
+                    break;
+                /*
+                case "+":
+                    nums[0] = Integer.parseInt(field.getText());
+                    field.setText("");
+                break;
+                */
+                case "=":
+                    String[] words = field.getText().split("+");
+                    field.setText("");
+                    for (String word : words) {
+                        field.setText(field.getText() + word);
+                    }
+                    break;
+                default:
+                    field.setText(field.getText() + button.getText());
             }
         }
     }
