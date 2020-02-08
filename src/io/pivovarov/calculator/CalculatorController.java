@@ -12,10 +12,6 @@ public class CalculatorController {
 
     @FXML
     public void onMouseClickListener(MouseEvent mouseEvent) {
-        int[] nums = new int[2];
-        //nums[0] = 0;
-        //nums[1] = 0;
-
         if (mouseEvent.getSource() instanceof Button) {
             Button button = (Button) mouseEvent.getSource();
             System.out.println("Pressed button: " + button.getText());
@@ -23,18 +19,21 @@ public class CalculatorController {
                 case "CE":
                     field.setText("");
                     break;
-                /*
-                case "+":
-                    nums[0] = Integer.parseInt(field.getText());
-                    field.setText("");
-                break;
-                */
                 case "=":
-                    String[] words = field.getText().split("+");
-                    field.setText("");
-                    for (String word : words) {
-                        field.setText(field.getText() + word);
+                    String[] numbers = field.getText().split("[\\+\\-\\/\\*]");
+                    double result = 0.0;
+                    double number1 = Float.parseFloat(numbers[0]);
+                    double number2 = Float.parseFloat(numbers[1]);
+                    if (field.getText().contains("+")) {
+                        result = number1 + number2;
+                    } else if (field.getText().contains("-")) {
+                        result = number1 - number2;
+                    } else if (field.getText().contains("*")) {
+                        result = number1 * number2;
+                    } else if (field.getText().contains("/")) {
+                        result = number1 / number2;
                     }
+                    field.setText(Double.toString(result));
                     break;
                 default:
                     field.setText(field.getText() + button.getText());
@@ -44,7 +43,24 @@ public class CalculatorController {
 
     @FXML
     public void onKeyPressedListener(KeyEvent keyEvent) {
+
         switch (keyEvent.getText()) {
+            case "=":
+                String[] numbers = field.getText().split("[\\+\\-\\/\\*]");
+                double result = 0.0;
+                double number1 = Float.parseFloat(numbers[0]);
+                double number2 = Float.parseFloat(numbers[1]);
+                if (field.getText().contains("+")) {
+                    result = number1 + number2;
+                } else if (field.getText().contains("-")) {
+                    result = number1 - number2;
+                } else if (field.getText().contains("*")) {
+                    result = number1 * number2;
+                } else if (field.getText().contains("/")) {
+                    result = number1 / number2;
+                }
+                field.setText(Double.toString(result));
+                break;
             case "1":
             case "2":
             case "3":
@@ -59,9 +75,12 @@ public class CalculatorController {
             case "-":
             case "/":
             case "*":
-            case "=":
+            case ".":
                 System.out.println("Pressed button: " + keyEvent.getText());
                 field.setText(field.getText() + keyEvent.getText());
+                break;
+            default:
+                field.setText(field.getText());
         }
     }
 }
