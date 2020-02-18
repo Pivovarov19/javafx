@@ -1,1 +1,8 @@
+:wq# IntelliJ IDEA
 .idea/
+*.iml
+
+# binary files
+bin/
+out/
+target/
