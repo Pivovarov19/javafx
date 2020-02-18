@@ -13,6 +13,7 @@ public class PingPongStarter extends Application {
         primaryStage.setTitle("Ping-Pong");
         primaryStage.setScene(new Scene(root, 500, 300));
         primaryStage.show();
+        root.requestFocus();
     }
 
 
