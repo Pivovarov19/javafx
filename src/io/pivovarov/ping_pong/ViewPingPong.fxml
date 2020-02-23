@@ -9,7 +9,7 @@
    <children>
       <Rectangle fx:id="field" arcHeight="5.0" arcWidth="5.0" fill="#ff811f" height="300.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
       <Rectangle fx:id="bluePlayer" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="48.0" layoutX="14.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" width="9.0"/>
-      <Rectangle fx:id="greenPlayer" arcHeight="5.0" arcWidth="5.0" fill="#1fff37" height="48.0" layoutX="477.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+      <Rectangle fx:id="greenPlayer" arcHeight="5.0" arcWidth="5.0" fill="#1fff37" height="48.0" layoutX="477.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
       <Circle fx:id="ball" fill="#ff1f1f" layoutX="250.0" layoutY="150.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </Pane>

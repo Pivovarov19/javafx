@@ -41,6 +41,11 @@ public class PingPongController_v1 {
             case Q:
                 System.exit(0);
                 break;
+            case R:
+                currentYBluePlayer.set(126);
+                currentYGreenPlayer.set(126);
+                ballCenterX.set(250);
+                timeline.stop();
         }
         ballMovement(1);
     }
