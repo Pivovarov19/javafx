@@ -7,6 +7,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class CalculatorController {
+    boolean operationUsed = false;
     @FXML
     public TextField field;
 
@@ -35,6 +36,15 @@ public class CalculatorController {
                     }
                     field.setText(Double.toString(result));
                     break;
+                /*case "+":
+                case "-":
+                case "/":
+                case "*":
+                    if(operationUsed = false) {
+                        field.setText(field.getText() + button.getText());
+                    }
+                    operationUsed = true;
+                    break;*/
                 default:
                     field.setText(field.getText() + button.getText());
             }
@@ -71,14 +81,19 @@ public class CalculatorController {
             case "8":
             case "9":
             case "0":
-            case "+":
-            case "-":
-            case "/":
-            case "*":
             case ".":
                 System.out.println("Pressed button: " + keyEvent.getText());
                 field.setText(field.getText() + keyEvent.getText());
                 break;
+            /*case "+":
+            case "-":
+            case "/":
+            case "*":
+                if(operationUsed = false) {
+                    field.setText(field.getText() + keyEvent.getText());
+                }
+                operationUsed = true;
+                break;*/
             default:
                 field.setText(field.getText());
         }
